@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CondenseJob - The Transparency Layer for Remote Hiring</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header Navigation Panel -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo-wrap">
+        <span class="logo-dot"></span>
+        <span class="logo-text">Condense<span class="text-cyan">Job</span></span>
+      </div>
+      <nav class="nav-links">
+        <a href="#analyzer" class="nav-item active">Analyze Hub</a>
+        <a href="#feed" class="nav-item">Insider Exchange</a>
+        <a href="#recommendations" class="nav-item">Resume Synergy</a>
+        <a href="#messenger" class="nav-item">Direct DM Lines</a>
+      </nav>
+      <div class="user-badge-wrap">
+        <div class="user-badge">
+          <span class="user-avatar">AR</span>
+          <span class="user-name">Alex R.</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero & Link Analyzer Form Section -->
+  <main class="main-content">
+    <section class="hero-section">
+      <div class="announcement-pill">⚡ PROTOTYPE HACKATHON MVP</div>
+      <h1 class="hero-title">
+        The Transparency Layer <br>
+        <span class="gradient-text">for Remote Hiring</span>
+      </h1>
+      <p class="hero-sub font-mono">
+        Validate salaries, analyze hidden contract clauses, and chat directly with verified current employees.
+      </p>
+
+      <!-- URL Analyzer Box -->
+      <div class="analyzer-wrap" id="analyzer">
+        <form id="url-form" class="url-input-card">
+          <div class="input-icon-group">
+            <span class="link-svg">🔗</span>
+            <input type="text" id="url-input" placeholder="Paste a LinkedIn, Indeed, or remote job post..." required>
+          </div>
+          <button type="submit" class="btn-primary" id="btn-submit-audit">
+            <span class="btn-spinner hidden" id="audit-spinner">🌀</span>
+            <span id="btn-text">Analyze Job</span>
+          </button>
+        </form>
+
+        <div class="exemplars-row">
+          <span>Try an exemplar:</span>
+          <button type="button" class="preset-btn" data-url="linkedin.com/jobs/view/vosyn-product-designer">Vosyn Web Designer</button>
+          <span class="dot-separator">•</span>
+          <button type="button" class="preset-btn" data-url="indeed.com/jobs/view/apex-tech-data-entry">Apex Data Clerk scam</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive AI Job Audit Response Section -->
+    <div class="loading-panel hidden" id="audit-loader">
+      <div class="scanning-beam"></div>
+      <p class="loading-label font-mono">🥫 Dispensing Trust Sensors & Pulling Forums...</p>
+    </div>
+
+    <section class="analysis-results-section hidden" id="audit-results-panel">
+      <!-- Section Header -->
+      <div class="results-header">
+        <div class="role-block">
+          <span class="vetted-badge">⚡ Real-Time AI Verification</span>
+          <h2 class="display-role" id="target-role">graphic designer</h2>
+          <p class="display-entity" id="target-entity">Vetted Enterprise Co. &bull; Remote</p>
+        </div>
+        <div class="action-block">
+          <button class="btn-secondary" id="btn-save-job">Save Job</button>
+          <a href="#feed" class="btn-outline">View Forum discussions</a>
+        </div>
+      </div>
+
+      <!-- Core Metric Cards (Similar to Extension Panel / Reference Image) -->
+      <div class="metrics-grid">
+        <div class="m-card">
+          <h3 class="m-label">Overall Trust Score</h3>
+          <p class="m-big text-warning" id="rating-trust">64</p>
+          <div class="bar-track"><div class="bar" id="bar-trust" style="width: 64%;"></div></div>
+        </div>
+        <div class="m-card">
+          <h3 class="m-label">Scam Risk Score</h3>
+          <p class="m-big text-success" id="rating-scam">34</p>
+          <div class="bar-track"><div class="bar" id="bar-scam" style="width: 34%;"></div></div>
+        </div>
+        <div class="m-card">
+          <h3 class="m-label">Worth Applying?</h3>
+          <div class="priority-pills">
+            <span class="m-pill-warning" id="desc-priority">Use Caution</span>
+          </div>
+        </div>
+        <div class="m-card">
+          <h3 class="m-label">Match Score</h3>
+          <p class="m-big text-warning" id="rating-match">71</p>
+          <div class="bar-track"><div class="bar" id="bar-match" style="width: 71%;"></div></div>
+        </div>
+      </div>
+
+      <!-- Detailed Breakdown List layout -->
+      <div class="details-grid">
+        <div class="d-panel">
+          <h4 class="font-mono label-heading uppercase"><span class="highlight-cyan">🥫</span> AI-Generated Audit Summaries</h4>
+          <ul class="bullet-list-large" id="list-summaries">
+            <li>Language suggests broad responsibilities.</li>
+          </ul>
+        </div>
+        
+        <div class="d-panel border-red-glow hidden" id="warnings-panel">
+          <h4 class="font-mono label-heading text-red uppercase">⚠️ Transparency Pitfalls Found</h4>
+          <ul class="bullet-list-large" id="list-warnings">
+            <!-- Warnings loaded here dynamically -->
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume Synergy & Upload section -->
+    <section class="section-container" id="recommendations">
+      <div class="section-badge font-mono">RESUME ANALYZER</div>
+      <h2 class="section-heading">Personalized Recommendation Hub</h2>
+      <p class="section-desc">
+        Upload your resume (PDF/TXT) to scan direct compatibility alignments and flag mismatch risks before submission.
+      </p>
+
+      <div class="bento-card relative">
+        <div class="upload-dropzone" id="resume-dropzone">
+          <span class="upload-svg">📤</span>
+          <p class="upload-title">Drag & drop your resume files here</p>
+          <p class="upload-helper">Supports .pdf, .docx, and .txt formats (Simulated scan)</p>
+          <input type="file" id="resume-file-input" class="hidden">
+        </div>
+
+        <div class="upload-result-box hidden" id="upload-result">
+          <div class="result-top">
+            <h4 class="result-title text-success">✓ Alex_Rivera_UI_Resume.pdf Matched!</h4>
+            <p class="result-subtitle">Successfully sync'd 12 core design skills from user records.</p>
+          </div>
+          <div class="match-metrics-row">
+            <div class="sub-metric">
+              <span class="sub-label">Profile Fit</span>
+              <span class="sub-val text-cyan">92% Match</span>
+            </div>
+            <div class="sub-metric">
+              <span class="sub-label">Visa Sync</span>
+              <span class="sub-val text-success">Authorized</span>
+            </div>
+            <div class="sub-metric">
+              <span class="sub-label">Work Style Fit</span>
+              <span class="sub-val text-cyan">Perfect Remote</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community Exchange Boards & Discussions -->
+    <section class="section-container" id="feed">
+      <div class="section-badge font-mono">INSIDER REPORT Boards</div>
+      <h2 class="section-heading">Verified Anonymous Discussions</h2>
+      <p class="section-desc">
+        Read comments from current and past employees. Post anonymous questions safely using vetted client accounts.
+      </p>
+
+      <div class="forum-grid">
+        <!-- Forum posting box -->
+        <div id="forum-form-card" class="bento-card">
+          <h3 class="card-subtitle">Share Insider Intel</h3>
+          <form id="comment-form" class="form-layout mt-3">
+            <div class="form-row-grid">
+              <div class="input-wrap">
+                <label for="comment-author">Your Pseudonym / Name</label>
+                <input type="text" id="comment-author" value="Anonymous Designer" placeholder="Leave blank for anonymity">
+              </div>
+              <div class="input-wrap">
+                <label for="comment-role-tag">Category / Role</label>
+                <select id="comment-role-tag">
+                  <option value="General Info">General Info</option>
+                  <option value="Compensation">Compensation & Pay</option>
+                  <option value="Interview Trial">Interview Trial</option>
+                  <option value="Hiring Process">Hiring Process</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Anonymous vs Verified toggle selection -->
+            <div class="checkbox-row">
+              <input type="checkbox" id="comment-is-anonymous" checked>
+              <label for="comment-is-anonymous">Post as 100% Secure Anonymous Insider</label>
+            </div>
+
+            <div class="input-wrap mt-2">
+              <label for="comment-content">Comment details / Company warning</label>
+              <textarea id="comment-content" rows="3" placeholder="Explain contract requirements, salary delays, tech task loops, or positive culture reviews..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary mt-3">Share on Board</button>
+          </form>
+        </div>
+
+        <!-- Discussions feed board -->
+        <div class="comments-stream-wrap bento-card">
+          <h3 class="card-subtitle">Community Intelligence Feed</h3>
+          <div class="comments-list" id="comments-list">
+            <!-- Simulated comments loaded here -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Direct Messaging (Simulated Employer Communication) -->
+    <section class="section-container" id="messenger">
+      <div class="section-badge font-mono">DMs LINK INDEX</div>
+      <h2 class="section-heading">Verified Direct Line Messenger</h2>
+      <p class="section-desc">
+        Connect securely with certified employees currently designing and coding inside targeted remote organizations.
+      </p>
+
+      <div class="messenger-grid bento-card">
+        <!-- Left Sidebar: Conversations Threads -->
+        <div class="msg-threads-sidebar">
+          <div class="sidebar-title">Insiders Chat Directory</div>
+          <div class="threads-list" id="threads-list">
+            <div class="thread-item active" data-conv-id="c1">
+              <div class="avatar-circle">J</div>
+              <div class="thread-info">
+                <div class="thread-name-row">
+                  <span class="participant-name">Jane Miller</span>
+                  <span class="vetted-v">✓</span>
+                </div>
+                <div class="thread-last-msg">Pay breakdown: liquidate shares...</div>
+              </div>
+            </div>
+            <div class="thread-item" data-conv-id="c2">
+              <div class="avatar-circle">D</div>
+              <div class="thread-info">
+                <div class="thread-name-row">
+                  <span class="participant-name">Devon Brooks</span>
+                  <span class="vetted-v">✓</span>
+                </div>
+                <div class="thread-last-msg">Completely remote eligible, high...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Main: Chat View Messages Stream -->
+        <div class="msg-viewport">
+          <div class="viewport-header">
+            <div class="active-participant-row">
+              <div class="header-avatar" id="active-chat-avatar">J</div>
+              <div class="header-desc">
+                <div class="header-name-row">
+                  <span class="h-name" id="active-chat-name">Jane Miller</span>
+                  <span class="vetted-v">✓</span>
+                </div>
+                <span class="h-status">Node Secure &bull; Encrypted Channel</span>
+              </div>
+            </div>
+            <div class="identity-badge">🛡️ Verified Identity Guide</div>
+          </div>
+
+          <div class="messages-viewport" id="messages-stream">
+            <!-- Dynamic chats go here -->
+          </div>
+
+          <!-- Chat form entry -->
+          <form id="dm-form" class="viewport-input-form">
+            <input type="text" id="dm-text-input" placeholder="Type verified question... (Try asking about 'pay', 'test', 'equity', 'interview')" required>
+            <button type="submit" class="btn-send">📥</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="app-footer">
+    <p>&copy; 2026 CondenseJob Index &bull; Vetted Remote Job Protection Network</p>
+    <p class="helper-text font-mono">Simulated Web App Prototype compiled for Google AI Studio Hackathon builds.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

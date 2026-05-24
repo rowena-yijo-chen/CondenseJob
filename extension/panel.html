@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CondenseJob Panel</title>
+  <link rel="stylesheet" href="panel.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <button class="brand" id="logoBtn" type="button" title="Open CondenseJob homepage">
+        <span class="dot"></span>
+        <span>CondenseJob</span>
+      </button>
+
+      <nav class="icons">
+        <button class="icon" data-route="home" title="Home">⌂</button>
+        <button class="icon" data-route="search" title="Search">⌕</button>
+        <button class="icon" data-route="saved" title="Saved Jobs">🔖</button>
+        <button class="icon" data-route="messages" title="Messages">✉</button>
+        <button class="icon" data-route="profile" title="Profile">◔</button>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section class="score-grid">
+        <div class="score">
+          <label>Overall Trust Score</label>
+          <strong id="trustScore">70</strong>
+        </div>
+        <div class="score">
+          <label>Scam Risk Score</label>
+          <strong id="riskScore" class="danger">18</strong>
+        </div>
+        <div class="score">
+          <label>Worth Applying?</label>
+          <strong id="decision">Use Caution</strong>
+        </div>
+        <div class="score">
+          <label>Match Score</label>
+          <strong id="matchScore">58</strong>
+        </div>
+      </section>
+
+      <section class="summary-card">
+        <p class="eyebrow">AI Summary</p>
+        <h1 id="jobTitle">Senior UX Researcher</h1>
+        <p id="jobMeta" class="meta">Company • Remote • Posted 12 days ago</p>
+        <p id="summaryText" class="summary">
+          The role appears to align with your background, but the posting includes a few transparency concerns.
+        </p>
+        <div class="chips" id="chips"></div>
+      </section>
+
+      <section class="panel-block">
+        <h2>Transparency insights</h2>
+        <ul id="warnings" class="bullets"></ul>
+      </section>
+
+      <section class="panel-block">
+        <h2>Community highlights</h2>
+        <ul id="community" class="bullets"></ul>
+      </section>
+
+      <section class="panel-block">
+        <h2>Scoring logic</h2>
+        <ul id="logic" class="bullets small"></ul>
+      </section>
+
+      <section class="actions">
+        <button type="button" class="ghost" id="saveBtn">Save this job</button>
+        <button type="button" class="ghost" id="dislikeBtn">I don't like this job</button>
+        <button type="button" class="ghost danger" id="reportBtn">Report this job</button>
+      </section>
+
+      <section class="footer-link">
+        <button type="button" id="openSite">Open CondenseJob website</button>
+      </section>
+    </main>
+  </div>
+
+  <script src="panel.js"></script>
+</body>
+</html>

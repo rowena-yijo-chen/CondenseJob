@@ -1,0 +1,29 @@
+
+{
+  "manifest_version": 3,
+  "name": "CondenseJob",
+  "version": "0.1.0",
+  "description": "AI-powered trust analysis for remote jobs.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": [
+    "*://*.linkedin.com/*",
+    "*://*.indeed.com/*",
+    "*://*.glassdoor.com/*",
+    "*://*.greenhouse.io/*",
+    "*://*.lever.co/*",
+    "*://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.linkedin.com/*", "*://*.indeed.com/*", "*://*.glassdoor.com/*", "*://*.greenhouse.io/*", "*://*.lever.co/*", "*://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["panel.html", "panel.css", "panel.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
