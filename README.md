@@ -43,3 +43,19 @@ CondenseJob
 ## About
 
 This project was built during a hackathon to explore how transparency, AI, and community-driven insights could improve the remote hiring experience.
+
+## Running the Extension
+
+This MVP browser extension currently runs through Google Chrome Extensions.
+
+To test the extension locally:
+
+1. Download or clone this repository
+2. Open Google Chrome
+3. Go to `chrome://extensions`
+4. Enable `Developer Mode`
+5. Click `Load unpacked`
+6. Select the `/extension` folder
+7. Open Indeed to test the experience
+
+The companion website is currently presented as a Figma prototype for demonstrating the broader ecosystem and future product vision.
